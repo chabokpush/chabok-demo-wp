@@ -1,0 +1,97 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wpNosilverlightApp="using:WP_nosilverlight_App">
+    <DataTemplate x:Name="ToTemplate">
+        <Grid HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock FontFamily="{StaticResource AdpFont}" Foreground="#ff622795" Text="c" TextWrapping="Wrap" Grid.Column="1" FontSize="40" Padding="10,5,10,5"/>
+
+            <Grid Grid.Column="0" x:Name="ToBubble" Margin="5,0" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock HorizontalAlignment="Right" FontFamily="{StaticResource IranSans}" Foreground="#ff622795" Text="{Binding UserNameText}" x:Name="UserNameText" TextWrapping="Wrap" Grid.Row="0" FontSize="21.333" Padding="10,5,10,5"/>
+
+                <Grid Margin="0" Background="#ffefeaf1" Grid.Row="1" Opacity="0.85">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontFamily="{StaticResource IranSans}" Foreground="Black" Text="{Binding TextMessage}" x:Name="MainText" TextWrapping="Wrap" Grid.Row="0" Width="300" FontSize="20" Padding="10,5,10,5">
+
+                    </TextBlock>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Opacity="0.8" Foreground="Black" FontFamily="{StaticResource IranSans}" Text="{Binding Time}" x:Name="timeText" Margin="0" TextWrapping="Wrap" Grid.Row="0" Padding="10" Grid.Column="0"/>
+                        <TextBlock Opacity="0.8" Foreground="Black" FontFamily="{StaticResource IranSans}" Text="{Binding Status}" x:Name="status" Margin="0" TextWrapping="Wrap" Grid.Row="0" Padding="10" Grid.Column="1" HorizontalAlignment="Right"/>
+                    </Grid>
+
+                </Grid>
+                <Path Grid.Row="2"  Data="M404,136 L404,149.5 L387.5,134.5 z" Fill="#ffefeaf1" HorizontalAlignment="Right" Height="20" Stretch="Fill" UseLayoutRounding="False" Width="20" Margin="0,-5,10,0"/>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Name="FromTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock FontFamily="{StaticResource AdpFont}" Foreground="#ff0e3f68" Text="c" TextWrapping="Wrap" Grid.Column="0" FontSize="40" Padding="10,5,10,5"/>
+            
+            <Grid Grid.Column="1" x:Name="FromBubble" HorizontalAlignment="Left" Margin="5,0" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Path Grid.Row="0" Data="M404,136 L404,149.5 L387.5,134.5 z" Fill="#ffe6e7ec"
+                      HorizontalAlignment="Left" Height="20" Stretch="Fill" UseLayoutRounding="False" Width="20"
+                      Margin="10,2,10,0" RenderTransformOrigin="0.5,0.5">
+                    <Path.RenderTransform>
+                        <CompositeTransform Rotation="-179.206" />
+                    </Path.RenderTransform>
+                </Path>
+                <Grid Margin="0" Background="#ffe6e7ec" Grid.Row="1" Opacity="0.85">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontFamily="{StaticResource IranSans}" Foreground="Black" Text="{Binding TextMessage}"
+                               x:Name="MainText2" TextWrapping="Wrap" Grid.Row="0" Width="300" FontSize="20"
+                               Padding="10,5,10,5">
+
+                    </TextBlock>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Opacity="0.8" FontFamily="{StaticResource IranSans}" Foreground="Black" Text="{Binding Time}" x:Name="timeText2" Margin="0"
+                                   TextWrapping="Wrap" Grid.Row="0" Padding="10" Grid.Column="0" />
+                        <TextBlock Opacity="0.8" Foreground="Black" FontFamily="{StaticResource IranSans}"
+                                   Text="{Binding Status}" x:Name="status" Margin="0" TextWrapping="Wrap" Grid.Row="0"
+                                   Padding="10" Grid.Column="1" HorizontalAlignment="Right" />
+                    </Grid>
+
+                </Grid>
+
+            </Grid></Grid>
+    </DataTemplate>
+    <wpNosilverlightApp:ChatBubbleSelector x:Key="ChatBubbleTemplateSelector" toBubble="{StaticResource ToTemplate}" fromBubble="{StaticResource FromTemplate}"></wpNosilverlightApp:ChatBubbleSelector>
+
+</ResourceDictionary>
+

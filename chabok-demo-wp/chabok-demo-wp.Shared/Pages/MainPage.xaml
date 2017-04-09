@@ -1,0 +1,205 @@
+﻿<Page
+    x:Class="chabok_demo_wp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:chabok_demo_wp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:control="using:chabok_demo_wp.Control"
+    mc:Ignorable="d"
+    RequestedTheme="Light"
+    FlowDirection="RightToLeft">
+    <Page.Transitions>
+        <TransitionCollection>
+            <EntranceThemeTransition/>
+        </TransitionCollection>
+    </Page.Transitions>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        
+        <control:PopDialog
+            IsHideClickOnContentControl="True"
+            IsHideClickBehind="True"
+            x:Name="PopDialogSetting"
+            IsShowOnDesign="False">
+
+            <Grid FlowDirection="RightToLeft" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Border
+                    Padding="0,10"
+                    BorderThickness="0,0,0,1"
+                    BorderBrush="#ff0e3f68">
+                    <TextBlock
+                        Foreground="#ff0e3f68"
+                        FontSize="23"
+                        Text="غیر فعال سازی نوتیفیکیشن"
+                        FontFamily="{StaticResource IranSans}"
+                        Padding="30,5"
+                        Margin="20,5" />
+                </Border>
+
+                <ToggleSwitch
+                    Loaded="ToggleSwitchNotificationState_OnLoaded"
+                    Name="ToggleSwitchNotificationState"
+                    Foreground="#FF041D32"
+                    FontFamily="{StaticResource IranSans}"
+                    Padding="30"
+                    Grid.Row="1">
+                    <ToggleSwitch.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                HorizontalAlignment="Stretch"
+                                Foreground="#FF041D32"
+                                FontSize="17"
+                                Text="اطلاع از پیام های جدید"
+                                FontFamily="{StaticResource IranSans}"
+                                Padding="30,5"
+                                Margin="20,5" />
+                        </DataTemplate>
+                    </ToggleSwitch.HeaderTemplate>
+                    <ToggleSwitch.OnContentTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                HorizontalAlignment="Stretch"
+                                Foreground="#FF041D32"
+                                FontSize="18"
+                                Text="فعال"
+                                FontFamily="{StaticResource IranSans}"
+                                Padding="30,5"
+                                Margin="20,5" />
+                        </DataTemplate>
+                    </ToggleSwitch.OnContentTemplate>
+                    <ToggleSwitch.OffContentTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                HorizontalAlignment="Stretch"
+                                Foreground="#FF041D32"
+                                FontSize="18"
+                                Text="غیر فعال"
+                                FontFamily="{StaticResource IranSans}"
+                                Padding="30,5"
+                                Margin="20,5" />
+                        </DataTemplate>
+                    </ToggleSwitch.OffContentTemplate>
+                </ToggleSwitch>
+
+                <Button
+                    Click="BtnDismiss_OnClick"
+                    Name="BtnDismiss"
+                    Padding="30,10"
+                    Margin="10,5,10,10"
+                    Content="خروج"
+                    HorizontalAlignment="Center"
+                    FontFamily="{StaticResource IranSans}"
+                    Grid.Row="2" />
+            </Grid>
+
+        </control:PopDialog>
+        
+        <Grid FlowDirection="RightToLeft">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Button
+                    Click="ButtonBase_OnClick"
+                    Visibility="Visible"
+                    Width="60"
+                    Padding="-10,5"
+                    Margin="5,5"
+                    Background="Transparent"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    FontSize="30"
+                    Content="s"
+                    BorderThickness="0"
+                    FontFamily="{StaticResource AdpFont}" MaxWidth="50" MaxHeight="50" MinHeight="50" MinWidth="50" />
+
+                <TextBlock
+                    x:Name="TxtTitle"
+                    Margin="0,10,0,0"
+                    Foreground="#FF0F0068"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    TextWrapping="Wrap"
+                    FontFamily="{StaticResource IranSans}"
+                    FontSize="25"
+                    Text="چابک رسان"
+                    TextAlignment="Center"
+                    FontWeight="Normal" />
+
+                <TextBlock
+                    x:Name="TxtConnectionState"
+                    Margin="10"
+                    Foreground="Gray"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    TextWrapping="Wrap"
+                    FontFamily="{StaticResource IranSans}"
+                    Text="آفلاین"
+                    FontWeight="Normal"
+                    TextAlignment="Center" />
+            </Grid>
+
+            <Border
+                Padding="0"
+                Grid.Row="1" BorderBrush="DodgerBlue"
+                BorderThickness="0,0,0,1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Button
+                        x:Name="BtnAbout"
+                        Margin="0,0,0,-3"
+                        BorderThickness="0"
+                        BorderBrush="DodgerBlue"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center"
+                        Background="Transparent"
+                        Grid.Column="0"
+                        Padding="20,8"
+                        Content="درباره چابک"
+                        Foreground="DodgerBlue"
+                        FontWeight="Normal"
+                        FontSize="17"
+                        FontFamily="{StaticResource IranSans}"
+                        Click="BtnAbout_OnClick" />
+
+                    <Button
+                        VerticalAlignment="Bottom"
+                        Margin="0,0,0,-3"
+                        x:Name="BtnMessage"
+                        Click="BtnMessage_OnClick"
+                        Background="Transparent"
+                        HorizontalAlignment="Center"
+                        BorderBrush="DodgerBlue"
+                        BorderThickness="0,0,0,3"
+                        Padding="20,8"
+                        Content="پیام رسان"
+                        Foreground="DodgerBlue"
+                        FontWeight="Normal"
+                        FontSize="17"
+                        FontFamily="{StaticResource IranSans}"
+                        Grid.Column="1" />
+
+                </Grid>
+            </Border>
+
+            <Frame Grid.Row="2" Name="MainFrame">
+
+            </Frame>
+
+        </Grid>
+        
+    </Grid>
+</Page>

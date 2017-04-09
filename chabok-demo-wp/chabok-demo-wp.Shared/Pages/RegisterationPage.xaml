@@ -1,0 +1,126 @@
+﻿<Page
+    x:Class="chabok_demo_wp.Pages.RegisterationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:chabok_demo_wp.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:control="using:chabok_demo_wp.Control"
+    mc:Ignorable="d"
+    RequestedTheme="Light"
+    FlowDirection="RightToLeft"
+    >
+    <Page.Transitions>
+        <TransitionCollection>
+            <EntranceThemeTransition/>
+        </TransitionCollection>
+    </Page.Transitions>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <control:PopDialog
+            x:Name="PopDialogWating"
+            IsShowOnDesign="False">
+            <StackPanel
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Margin="10"
+                Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <ProgressRing
+                    Margin="70,40,70,0"
+                    Width="70"
+                    Height="70"
+                    IsActive="True" />
+                <TextBlock
+                    Name="TxtWait"
+                    Margin="20"
+                    TextWrapping="Wrap"
+                    FontFamily="{StaticResource IranSans}"
+                    Style="{StaticResource TitleTextBlockStyle}"
+                    Text="در حال ارسال اطلاعات ..."
+                    FontWeight="Normal"
+                    TextAlignment="Center" />
+            </StackPanel>
+        </control:PopDialog>
+
+        <Grid
+            Margin="20"
+            MaxWidth="720">
+
+            <StackPanel>
+                <TextBlock
+                    Name="TxtTitle"
+                    Margin="0,10,0,20"
+                    Foreground="#FF0F0068"
+                    HorizontalAlignment="Center"
+                    TextWrapping="Wrap"
+                    FontFamily="{StaticResource IranSans}"
+                    Style="{StaticResource TitleTextBlockStyle}"
+                    Text=" برای مشاهده دمو لطفا مشخصات خود را وارد کنید :"
+                    FontWeight="Normal"
+                    TextAlignment="Center" />
+
+                <TextBox
+                    KeyDown="TxtUserName_OnKeyDown"
+                    Name="TxtUserName"
+                    BorderThickness="0,0,0,0.9"
+                    BorderBrush="DarkSlateGray"
+                    Background="Transparent"
+                    PlaceholderText="نام و نام خانوادگی"
+                    FontFamily="{StaticResource IranSans}"
+                    FontWeight="Normal"
+                    Margin="10,20" />
+
+                <TextBox
+                    KeyDown="TxtCompany_OnKeyDown"
+                    Name="TxtCompany"
+                    BorderThickness="0,0,0,0.9"
+                    BorderBrush="DarkSlateGray"
+                    Background="Transparent"
+                    PlaceholderText="نام شرکت (اختیاری)"
+                    FontFamily="{StaticResource IranSans}"
+                    FontWeight="Normal"
+                    Margin="10,20" />
+
+                <TextBox
+                    KeyDown="TxtEmailAddress_OnKeyDown"
+                    Name="TxtEmailAddress"
+                    BorderThickness="0,0,0,0.9"
+                    BorderBrush="DarkSlateGray"
+                    Background="Transparent"
+                    PlaceholderText="آدرس ایمیل"
+                    FontFamily="{StaticResource IranSans}"
+                    FontWeight="Normal"
+                    Margin="10,20"
+                    InputScope="EmailSmtpAddress" />
+
+                <Button
+                    Name="BtnRegister"
+                    Margin="30,30,30,0"
+                    HorizontalAlignment="Stretch"
+                    BorderThickness="1"
+                    BorderBrush="DarkSlateGray"
+                    Background="Aquamarine"
+                    MinHeight="40"
+                    Padding="7"
+                    FontFamily="{StaticResource IranSans}"
+                    Content="ارسال و ادامه"
+                    FontWeight="Normal"
+                    Click="BtnRegister_OnClick" />
+
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Name="TxtLogo"
+                    FontFamily="{StaticResource AdpFont}"
+                    FontWeight="Normal"
+                    Margin="10"
+                    Text="c"
+                    HorizontalAlignment="Center"
+                    FontSize="180" 
+                    Opacity="0.04"
+                    Foreground="DeepSkyBlue"/>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Page>

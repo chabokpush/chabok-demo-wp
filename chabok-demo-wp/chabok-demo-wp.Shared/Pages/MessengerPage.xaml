@@ -1,0 +1,92 @@
+﻿<Page
+    x:Class="chabok_demo_wp.Pages.MessengerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:chabok_demo_wp.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    RequestedTheme="Light"
+    FlowDirection="RightToLeft"
+    >
+    <Page.Transitions>
+        <TransitionCollection>
+            <EntranceThemeTransition/>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Viewbox
+                Grid.Row="0">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Foreground="#007cff"
+                    Opacity="0.1"
+                    Margin="2"
+                    FontFamily="{StaticResource AdpFont}"
+                    Text="c" />
+            </Viewbox>
+            
+            <ListBox
+                Grid.Row="0"
+                Background="Transparent"
+                BorderThickness="0"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                x:Name="LstChabokChat"
+                ItemTemplateSelector="{StaticResource ChatBubbleTemplateSelector}">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                        <Setter Property="IsHitTestVisible" Value="False"></Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+            
+            <Border 
+                BorderBrush="#ff535e7a"
+                BorderThickness="0,1,0,0"
+                Grid.Row="1">
+                <Grid 
+                    >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                        BorderBrush="#ff535e7a"
+                        BorderThickness="2"
+                        FontSize="19"
+                        Background="Transparent"
+                        Padding="10,5"
+                        Name="TxtMessage"
+                        Margin="10,2,3,2"
+                        VerticalAlignment="Center"
+                        PlaceholderText="متن پیام"
+                        FontFamily="{StaticResource IranSans}"
+                    />
+
+                    <Button
+                        Name="BtnSend"
+                        Click="BtnSendOnClick"
+                        BorderBrush="#ff535e7a"
+                        BorderThickness="1"
+                        Background="LightGreen"
+                        VerticalAlignment="Center"
+                        FontFamily="{StaticResource IranSans}"
+                        Margin="3,1,10,2"
+                        Padding="30,10"
+                        Content="ارسال"
+                        Grid.Column="1"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

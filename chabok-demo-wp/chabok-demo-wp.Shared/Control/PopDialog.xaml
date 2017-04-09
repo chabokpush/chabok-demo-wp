@@ -1,0 +1,31 @@
+﻿<UserControl
+    x:Class="chabok_demo_wp.Control.PopDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:chabok_demo_wp.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    RequestedTheme="Light"
+    >
+
+    <Grid>
+        <Popup
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            x:Name="PopupDialog"
+            IsOpen="false">
+            <Grid x:Name="PopupDialogGrid"
+                  VerticalAlignment="Stretch"
+                  HorizontalAlignment="Stretch"
+                  Background="{ThemeResource AppBarItemPointerOverBackgroundThemeBrush}">
+                <ContentControl
+                    x:Name="ContentControl"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+
+                </ContentControl>
+            </Grid>
+        </Popup>
+    </Grid>
+</UserControl>
