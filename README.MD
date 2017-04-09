@@ -74,7 +74,6 @@
 > ![enter image description here](http://uupload.ir/files/tno3_appid.png)
 
 apiKey : محل خط قرمز در تصویر زیر
-
 > 
 > ![enter image description here](http://uupload.ir/files/cz5d_eaaz_appkey.png)
 
